@@ -38,6 +38,7 @@
             justify-content: center;
             gap: 2rem;
             padding: 1rem 2rem;
+            padding-left: 160px;
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.15em;
@@ -85,6 +86,7 @@
         /* HERO / SPLASH */
         #hero {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -100,17 +102,20 @@
 
         .logo-play-wrapper {
             position: relative;
-            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .audio-controls {
             position: fixed;
-            top: 1.2rem;
-            left: 1.5rem;
+            top: 0;
+            left: 0;
             z-index: 150;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
+            padding: 0.85rem 1rem;
         }
 
         .play-btn {
@@ -529,9 +534,14 @@
             }
 
             .audio-controls {
-                top: 1rem;
-                left: 1rem;
-                gap: 0.4rem;
+                top: 0;
+                left: 0;
+                padding: 0.75rem 0.8rem;
+                gap: 0.3rem;
+            }
+
+            nav {
+                padding-left: 120px;
             }
 
             .play-btn {
