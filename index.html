@@ -98,6 +98,36 @@
             height: auto;
         }
 
+        .logo-play-wrapper {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .play-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            opacity: 0.2;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .logo-play-wrapper:hover .play-indicator {
+            opacity: 0.4;
+        }
+
+        .logo-play-wrapper.playing .play-indicator {
+            opacity: 0.35;
+        }
+
+        .logo-play-wrapper.playing:hover .play-indicator {
+            opacity: 0.5;
+        }
+
         /* PHOTO BREAK */
         .photo-break {
             width: 100%;
@@ -457,6 +487,11 @@
                 max-width: 320px;
             }
 
+            .play-indicator {
+                width: 36px;
+                height: 36px;
+            }
+
             section {
                 padding: 4rem 1.5rem;
             }
@@ -504,7 +539,13 @@
 
 <!-- HERO -->
 <div id="hero">
-    <img src="assets/logo.png" alt="DURYDAVA">
+    <div class="logo-play-wrapper" id="logoPlayer" onclick="toggleTrack()">
+        <img src="assets/logo.png" alt="DURYDAVA">
+        <svg class="play-indicator" id="playIcon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,10 40,24 16,38" fill="#111"/>
+        </svg>
+    </div>
+    <audio id="heroTrack" src="assets/track.mp3" preload="none"></audio>
 </div>
 
 <!-- HERO MAILING LIST -->
@@ -666,6 +707,28 @@ document.querySelectorAll('.nav-links a').forEach(function(link) {
         document.querySelector('.hamburger').classList.remove('open');
         document.querySelector('.nav-links').classList.remove('open');
     });
+});
+
+// Logo audio player
+var heroTrack = document.getElementById('heroTrack');
+var playIcon = document.getElementById('playIcon');
+var logoWrapper = document.getElementById('logoPlayer');
+
+function toggleTrack() {
+    if (heroTrack.paused) {
+        heroTrack.play();
+        logoWrapper.classList.add('playing');
+        playIcon.innerHTML = '<rect x="14" y="10" width="6" height="28" fill="#111"/><rect x="28" y="10" width="6" height="28" fill="#111"/>';
+    } else {
+        heroTrack.pause();
+        logoWrapper.classList.remove('playing');
+        playIcon.innerHTML = '<polygon points="16,10 40,24 16,38" fill="#111"/>';
+    }
+}
+
+heroTrack.addEventListener('ended', function() {
+    logoWrapper.classList.remove('playing');
+    playIcon.innerHTML = '<polygon points="16,10 40,24 16,38" fill="#111"/>';
 });
 </script>
 
