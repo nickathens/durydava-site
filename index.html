@@ -154,8 +154,20 @@
             gap: 1.5rem;
             justify-content: center;
         }
-        .album-embeds iframe {
+        .album-embeds .album-item {
             flex: 1;
+            min-width: 0;
+            text-align: center;
+        }
+        .album-embeds .album-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+        .album-embeds iframe {
+            width: 100%;
             min-width: 0;
         }
 
@@ -463,9 +475,12 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .album-embeds iframe {
+            .album-embeds .album-item {
                 width: 100%;
                 max-width: 400px;
+            }
+            .album-embeds iframe {
+                width: 100%;
             }
         }
     </style>
@@ -514,9 +529,18 @@
     <h2>Music</h2>
     <p style="margin-bottom: 2rem;"><a href="https://durydava-innerear.bandcamp.com/music" target="_blank" rel="noopener" style="color: #e0197d; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">View all on Bandcamp</a></p>
     <div class="album-embeds">
-        <iframe style="border: 0; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2202670042/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless><a href="https://durydava-innerear.bandcamp.com/album/-">ΔΕΠΥ by Dury Dava</a></iframe>
-        <iframe style="border: 0; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1230355509/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless><a href="https://durydava-innerear.bandcamp.com/album/deluxe">Deluxe by Dury Dava</a></iframe>
-        <iframe style="border: 0; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3223887322/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless><a href="https://durydava-innerear.bandcamp.com/album/dury-dava">Dury Dava by Dury Dava</a></iframe>
+        <div class="album-item">
+            <div class="album-title">Dury Dava &ndash; &Delta;&Epsilon;&Pi;&Upsilon; (2025)</div>
+            <iframe style="border: 0; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2202670042/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless><a href="https://durydava-innerear.bandcamp.com/album/-">ΔΕΠΥ by Dury Dava</a></iframe>
+        </div>
+        <div class="album-item">
+            <div class="album-title">Dury Dava &ndash; Deluxe (2022)</div>
+            <iframe style="border: 0; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1230355509/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless><a href="https://durydava-innerear.bandcamp.com/album/deluxe">Deluxe by Dury Dava</a></iframe>
+        </div>
+        <div class="album-item">
+            <div class="album-title">Dury Dava &ndash; Dury Dava (2019)</div>
+            <iframe style="border: 0; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3223887322/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless><a href="https://durydava-innerear.bandcamp.com/album/dury-dava">Dury Dava by Dury Dava</a></iframe>
+        </div>
     </div>
 </section>
 
